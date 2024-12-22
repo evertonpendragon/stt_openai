@@ -18,7 +18,7 @@ def traduzir_texto(conteudo):
     prompt = (
         "Traduza na íntegra os textos enviados aqui para o português. Qualquer número ordinal ou cardinal deve ser transcrito por extenso. "
         "Qualquer número referente a milênios deve ser transcrito por extenso. Notação de datas imperiais como '999.M41' deve ser transcritas por extenso, "
-        "como 'novecentos e noventa e nove do quadragésimo primeiro milênio. Os nomes das legiões também devem ser transcritos por extenso, por exemplo, "
+        "como 'novecentos e noventa e nove do quadragésimo primeiro milênio'. Os nomes das legiões também devem ser transcritos por extenso, por exemplo, "
         "'VIª Legião' ficará 'Sexta Legião'. Não traduza os títulos dos personagens, como por exemplo 'Wolf King' e 'Great Wolf'."
     )
 
@@ -26,8 +26,8 @@ def traduzir_texto(conteudo):
         response = openai.chat.completions.create(
             model= "gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "Você é um escritor especializado."},
-                {"role": "user", "content": f"{prompt}\n\nTexto:\n{conteudo}"}
+                {"role": "system", "content": f"Você é um escritor especializado. {prompt}"},
+                {"role": "user", "content": f"Texto:\n{conteudo}"}
             ],
             temperature=0
         )
