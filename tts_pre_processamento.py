@@ -45,5 +45,3 @@ with open(voice_input_file,"w",encoding='utf-8') as f:
     lines = "\n§\n".join(partes)
     f.write(lines)
 
-
-###
